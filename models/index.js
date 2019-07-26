@@ -1,13 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+mongoose.set('debug', true);
+mongoose.connect('mongodb://localhost/Todo', { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
 
-
-
-mongoose.connect('mongodb://localhost:27017/Todo', { useNewUrlParser: true })
-.then(() => console.log('Connected To Db'))
-.catch(err => console.log('Not Connected To Db' , err))
-
-
-
-module.exports.Todo = require('./todo')
-
-
+module.exports.Todo = require('./todo');
