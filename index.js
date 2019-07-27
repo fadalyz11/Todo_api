@@ -1,10 +1,12 @@
 const express = require('express'),
       app = express(),
-      port = process.env.PORT || 5000,
+      port =8080,
       bodyParser = require('body-parser'),
       todoRoutes = require('./routes/todos');  
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended:false}));
+    app.use(express.static('public'))
+    app.use(express.static(__dirname +'/views'));
     
   
       app.get('/', (req,res) => {
